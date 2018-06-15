@@ -37,45 +37,17 @@ checkProgram (Program name defs body)
     etapa2 = checkNombresNoDeclarados (Program name defs body)
     etapa3 = checkTipos(Program name defs body)
 
-checkNombresNoDeclarados :: Program -> [Error]
-checkNombresNoDeclarados (Program name defs body) = usadosIncluidosEnDeclarados (nombresDeclarados defs, nombresUsados body)
+-- **********************************************************************************
+-- ****************  Check Etapa 1: Repetición de nombres  **************************
+-- **********************************************************************************
 
-usadosIncluidosEnDeclarados :: [Name] -> [Name] -> [Error]
---Se toma la lista xs como la lista de declarados
---Se toma la lista ys como la lista de usados
-usadosIncluidosEnDeclarados xs [] = []
-usadosIncluidosEnDeclarados xs ys = [Undefined y | y <- ys, notElem y xs]
-
-nombresUsados :: Body -> [Name]
-nombresUsados [] = []
-nombresUsados (x:xs) = (getBodyName x) : nombresUsados xs
+getDefName :: VarDef -> [Name]
+getDefName (VarDef name _) = [name]
 
 nombresDeclarados :: Defs -> [Name]
 nombresDeclarados [] = []
 nombresDeclarados (x:xs) = (getDefName x) ++ nombresDeclarados xs
 
-getBodyName :: Stmt -> [Name]
-getBodyName (Assig name expr) = [name] ++ getExprName expr
---no se si esta bien
-
---no se que es Assig
-getBodyName (If expr body1 body2) = getExprName expr ++ getBodyName body1 ++ getBodyName body2
-getBodyName (While expr body) = getExprName expr ++ getBodyName body
-getBodyName (Write expr) = getExprName expr
-getBodyName (Read  name) = [name]
-
-getExprName :: Expr -> [Name]
-getExprName (Var name) = [name]
-getExprName (IntLit int) = []
-getExprName (BoolLit bool) = []
-getExprName (Unary uOp expr) = getExprName expr
-getExprName (Binary bOp expr1 expr2) = getExprName expr1 ++ getExprName expr2
-
-
-getDefName :: VarDef -> [Name]
-getDefName (VarDef (name, _)) = [name]
-
--- ****************  Check Etapa 1: Repetición de nombres  ****************
 checkNombresRepetidos :: Defs -> [Error]
 checkNombresRepetidos (defs) = checkElementosRepetidos (nombresDeclarados defs)
 
@@ -86,9 +58,47 @@ checkElementosRepetidos (x:xs)
     | elem (last xs) (x:(init xs)) = (checkElementosRepetidos (x:(init xs))) ++ [Duplicated (last xs)]
     | otherwise = checkElementosRepetidos (x:(init xs))
 
--- *****************************************
---De aca en adelante se hace el check de tipos
--- *****************************************
+-- ****************************************************************************************************************
+
+-- **********************************************************************************
+-- ****************  Check Etapa 2: Nombres no declarados  **************************
+-- **********************************************************************************
+
+checkNombresNoDeclarados :: Program -> [Error]
+checkNombresNoDeclarados (Program name defs body) = usadosIncluidosEnDeclarados nombresD nombresU
+    where
+    nombresD = nombresDeclarados defs
+    nombresU = nombresUsados body
+
+usadosIncluidosEnDeclarados :: [Name] -> [Name] -> [Error]
+--Se toma la lista xs como la lista de declarados
+--Se toma la lista ys como la lista de usados
+usadosIncluidosEnDeclarados xs [] = []
+usadosIncluidosEnDeclarados xs ys = [Undefined y | y <- ys, notElem y xs]
+
+nombresUsados :: Body -> [Name]
+nombresUsados [] = []
+nombresUsados (x:xs) = (getStmtName x) ++ nombresUsados xs
+
+getStmtName :: Stmt -> [Name]
+getStmtName (Assig name expr) = [name] ++ getExprName expr
+getStmtName (If expr body1 body2) = getExprName expr ++ nombresUsados body1 ++ nombresUsados body2
+getStmtName (While expr body) = getExprName expr ++ nombresUsados body
+getStmtName (Write expr) = getExprName expr
+getStmtName (Read  name) = [name]
+
+getExprName :: Expr -> [Name]
+getExprName (Var name) = [name]
+getExprName (IntLit int) = []
+getExprName (BoolLit bool) = []
+getExprName (Unary uOp expr) = getExprName expr
+getExprName (Binary bOp expr1 expr2) = getExprName expr1 ++ getExprName expr2
+
+-- ****************************************************************************************************************
+
+-- **********************************************************************************
+-- ****************  Check Etapa 3: Tipos  ******************************************
+-- **********************************************************************************
 
 checkTipos :: Program -> [Error]
 checkTipos (Program name defs []) = []
@@ -97,8 +107,12 @@ checkTipos (Program name defs (x:xs)) = checkStmt x ++ checkTipos (Program name 
 
 
 --Chequea instrucciones if, while, readln, writeln
---checkStmt :: Stmt -> [Error]
-
+checkStmt :: Stmt -> [Error]
+checkStmt (Assig name expr) = [name] ++ getExprName expr
+checkStmt (If expr body1 body2) = getExprName expr ++ nombresUsados body1 ++ nombresUsados body2
+checkStmt (While expr body) = getExprName expr ++ nombresUsados body
+checkStmt (Write expr) = getExprName expr
+checkStmt (Read  name) | [name]
 -- *******************************
 
 --Devuelve lista de variables (Names) que deben ser booleanas

@@ -75,7 +75,7 @@ programParser = do m_whiteSpace
                    m_reserved "program"
                    name <- m_identifier
                    m_semi  
-                   defs <- defsparser 
+                   defs <- defsparser
                    body <- bodyparser
                    m_reservedOp "."
                    return (Program name defs body)
