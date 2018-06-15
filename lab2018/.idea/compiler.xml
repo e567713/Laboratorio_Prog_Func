@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="HaskellBuildOptions">
+    <ghcPath>C:\ghc\ghc-7.0.1\bin\ghc.exe</ghcPath>
+    <stackPath>C:\Users\ernes\AppData\Roaming\local\bin\stack.exe</stackPath>
+  </component>
+</project>
