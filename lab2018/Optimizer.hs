@@ -16,22 +16,49 @@ import Syntax
 
 
 optimize :: Program -> Program
-optimize (Program name defs []) = Program name defs body
-optimize (Program name defs (x:xs)) = Program name defs optimizeStmt x : optimizeBody xs
+optimize (Program name defs []) = Program name defs []
+optimize (Program name defs body) = Program name defs $ optimizeBody body
 
 
 optimizeBody :: Body -> Body
-optimizeBody name defs [] = Program name defs body 
-optimizeBody name defs (x:xs) = Program name defs optimize x ++ optimizeBody xs
+optimizeBody [] = []
+optimizeBody (x:xs) = optimizeStmt x ++ optimizeBody xs
 
 optimizeStmt :: Stmt -> Body 
-optimizeStmt (Assig name expr) = [(Assig name optimizeExpr expr)]
+optimizeStmt (Assig name expr) = [(Assig name $ optimizeExpr expr)]
 optimizeStmt (If expr body1 body2) 
-	| alwaysTrue expr = optimizeBody body1
-	| alwaysFalse expr = optimizeBody body2
-	| otherwise = [(If optimizeExpr expr optimizeBody body1 optimizeBody body2)]
+    | alwaysTrue expr = cuerpo1
+    | alwaysFalse expr = cuerpo2
+    | otherwise = [(If  expresion cuerpo1  cuerpo2)]
+    where
+        cuerpo1 = optimizeBody body1
+        cuerpo2 = optimizeBody body2
+        expresion = optimizeExpr expr
 optimizeStmt (While expr body)
-	| alwaysFalse = []
-	| otherwise = [(While optimizeExpr expr optimizeBody body)]
-optimizeStmt (Write expr) = [(Write optimizeExpr expr)]
+    | alwaysFalse expr = []
+    | otherwise = [(While expresion cuerpo)]
+    where
+        cuerpo = optimizeBody body
+        expresion = optimizeExpr expr
+optimizeStmt (Write expr) = [(Write  $ optimizeExpr expr)]
 optimizeStmt (Read  name) = [(Read name)]
+
+
+
+optimizeExpr :: Expr -> Expr
+optimizeExpr expr = expr
+    -- TODO hacer esto
+
+alwaysTrue :: Expr -> Bool
+alwaysTrue (BoolLit bool) = bool
+alwaysTrue (Unary uOp expr)
+  | uOp == Not = alwaysFalse expre
+alwaysTrue (Binary bOp expr1 expr2)
+  | bOp == Or = (alwaysTrue expr1) || (alwaysTrue expr2)
+  | bOp == And = (alwaysTrue expr1) && (alwaysTrue expr2)
+  | bOp == Equ = valorFinal expr == vlasof
+  | bOp == Less =
+
+
+alwaysFalse :: Expr -> Bool
+alwaysFalse expr = True
