@@ -1,0 +1,1 @@
+[PUSH 24,STORE "x",PUSH 76,LOAD "x",ADD,STORE "x",PUSH 1,STORE "b"]

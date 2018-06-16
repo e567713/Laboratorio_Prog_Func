@@ -1,0 +1,1 @@
+Program "test13" [VarDef "y" boolean] [Assig "y" (BoolLit True)]

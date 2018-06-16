@@ -1,0 +1,1 @@
+Program "test07" [VarDef "x" integer,VarDef "y" integer] [Read "x",Assig "x" (Var "x"),Write (Var "x"),Assig "y" (Binary Plus (IntLit 9) (Var "x")),Write (Var "y"),Assig "y" (Binary Plus (Binary Plus (Binary Plus (Var "x") (IntLit 5)) (IntLit 6)) (IntLit 7)),Write (Var "y")]334251

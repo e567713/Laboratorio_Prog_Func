@@ -1,0 +1,1 @@
+Program "test09" [VarDef "x" integer,VarDef "y" boolean] [Assig "x" (IntLit 16),Assig "y" (BoolLit False),Write (Binary Mult (Var "x") (IntLit 2))]32

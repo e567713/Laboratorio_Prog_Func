@@ -1,0 +1,1 @@
+Program "test08" [VarDef "x" boolean,VarDef "y" boolean] [Assig "x" (BoolLit True),Assig "y" (BoolLit False),Assig "y" (Binary And (Unary Not (Var "y")) (Var "x")),Assig "x" (Binary Or (Var "y") (Var "x"))]

@@ -1,0 +1,1 @@
+program test03;var x : boolean;begin   readln(x);   x := x + 76;   writeln(x)end.

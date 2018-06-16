@@ -1,0 +1,1 @@
+Program "test01" [VarDef "x" integer,VarDef "b" boolean] [Assig "x" (IntLit 24),Assig "x" (Binary Plus (Var "x") (IntLit 76)),Assig "b" (BoolLit True)]
