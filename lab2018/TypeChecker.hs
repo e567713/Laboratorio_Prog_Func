@@ -103,37 +103,110 @@ getExprName (Binary bOp expr1 expr2) = getExprName expr1 ++ getExprName expr2
 checkTipos :: Program -> [Error]
 checkTipos (Program name defs []) = []
 -- *******************************
-checkTipos (Program name defs (x:xs)) = checkStmt x ++ checkTipos (Program name defs xs)
+checkTipos (Program name defs body) = checkBody body defs
+
+checkBody :: Body -> Defs -> [Error]
+checkBody [] defs = []
+checkBody (x:xs) defs = checkStmt x defs ++ checkBody xs defs
 
 
 --Chequea instrucciones if, while, readln, writeln
-checkStmt :: Stmt -> [Error]
-checkStmt (Assig name expr) = [name] ++ getExprName expr
-checkStmt (If expr body1 body2) = getExprName expr ++ nombresUsados body1 ++ nombresUsados body2
-checkStmt (While expr body) = getExprName expr ++ nombresUsados body
-checkStmt (Write expr) = getExprName expr
-checkStmt (Read  name) | [name]
--- *******************************
-
---Devuelve lista de variables (Names) que deben ser booleanas
---Que son usadas en if, while
-listaNamesQueDeberianSerTipoBool :: Stmt -> [Error]
---Assig Name Expr .... no se que es
-listaNamesQueDeberianSerTipoBool (If expr body1 body2) =
-	esTipoBool expr ++
-	listaNamesQueDeberianSerTipoBool body1 ++
-	listaNamesQueDeberianSerTipoBool body2
-listaNamesQueDeberianSerTipoBool (While expr body) =
-	esTipoBool expr ++
-	listaNamesQueDeberianSerTipoBool body
-listaNamesQueDeberianSerTipoBool (Write expr) =
+checkStmt :: Stmt -> Defs-> [Error]
+checkStmt (If expr body1 body2) defs 
+  | tipoExpr expr defs == TyInt = checkExpr expr defs ++ [Expected TyBool TyInt] ++ checkBody body1 defs ++ checkBody body2 defs
+  | tipoExpr expr defs == TyBool = checkExpr expr defs ++ [] ++ checkBody body1 defs ++ checkBody body2 defs
+checkStmt (While expr body) defs 
+  | tipoExpr expr defs == TyInt = checkExpr expr defs ++ [Expected TyBool TyInt] ++ checkBody body defs
+  | tipoExpr expr defs == TyBool = checkExpr expr defs ++ [] ++ checkBody body defs 
+checkStmt (Write expr) defs 
+  | tipoExpr expr defs == TyInt = checkExpr expr defs ++ []
+  | tipoExpr expr defs == TyBool = checkExpr expr defs ++ [Expected TyInt TyBool]
+checkStmt (Read  name) defs  
+  | tipoVariable name defs == TyInt = []
+  | tipoVariable name defs == TyBool = [Expected TyInt TyBool]
+checkStmt (Assig name expr) defs 
+  | tipoVariable name defs == TyBool = if tipoExpr expr defs == TyBool then checkExpr expr defs ++ [] else checkExpr expr defs ++ [Expected TyBool TyInt]
+  | tipoVariable name defs == TyInt = if tipoExpr expr defs == TyInt then checkExpr expr defs ++ [] else checkExpr expr defs ++ [Expected TyInt TyBool]
 
 
-	getNameTipoBool expr ++
-	listaNamesQueDeberianSerTipoBool body1 ++
-	listaNamesQueDeberianSerTipoBool body2
--- listaNamesQueDeberianSerTipoBool (While expr body)
+tipoExpr :: Expr -> Defs -> Type
+tipoExpr (Var name) defs = tipoVariable name defs
+tipoExpr (IntLit int) defs = TyInt
+tipoExpr (BoolLit bool) defs = TyBool
+tipoExpr (Unary uOp expr) defs
+  | uOp == Not = TyBool
+  | uOp == Neg = TyInt
+tipoExpr (Binary bOp expr1 expr2) defs
+  | bOp == Or = TyBool
+  | bOp == And = TyBool
+  | bOp == Equ = TyBool
+  | bOp == Less = TyBool
+  | bOp == Plus = TyInt
+  | bOp == Minus = TyInt
+  | bOp == Mult = TyInt
+  | bOp == Div = TyInt
+  | bOp == Mod = TyInt
 
-tipoCorrecto :: Body -> [Error]
-tipoCorrecto [] = []
--- tipoCorrecto (x:xs) =
+--en las ultimas expresiones solo se fija el operador para saber el tipo
+--el checkStm despues chequea la correctitud de expr
+
+
+--data Expr =. Var     Name
+--          | IntLit  Integer
+--          | BoolLit Bool
+--          | Unary   UOp Expr
+--          | Binary  BOp Expr Expr
+
+
+checkExpr :: Expr -> Defs -> [Error] --capas que hay que pasarle como parametro defs tambien
+checkExpr (Var name ) defs = []
+checkExpr (IntLit int) defs = []
+checkExpr (BoolLit bool) defs = []
+checkExpr (Unary uOp expr) defs
+  | uOp == Not = if tipoExpr expr defs == TyBool then checkExpr expr defs ++ [] else checkExpr expr defs ++ [Expected TyBool TyInt]
+  | uOp == Neg = if tipoExpr expr defs == TyInt then checkExpr expr defs ++ [] else checkExpr expr defs ++ [Expected TyInt TyBool]
+checkExpr (Binary bOp expr1 expr2) defs 
+  | bOp == Or = checkExpr expr1 defs ++ checkExpr expr2 defs ++ checkBool expr1 expr2 defs 
+  | bOp == And = checkExpr expr1 defs ++ checkExpr expr2 defs ++ checkBool expr1 expr2 defs
+  | bOp == Equ = checkExpr expr1 defs ++ checkExpr expr2 defs ++ checkInt expr1 expr2 defs
+  | bOp == Less = checkExpr expr1 defs ++ checkExpr expr2 defs ++ checkInt expr1 expr2 defs
+  | bOp == Plus = checkExpr expr1 defs ++ checkExpr expr2 defs ++ checkInt expr1 expr2 defs
+  | bOp == Minus = checkExpr expr1 defs ++ checkExpr expr2 defs ++ checkInt expr1 expr2 defs
+  | bOp == Mult = checkExpr expr1 defs ++ checkExpr expr2 defs ++ checkInt expr1 expr2 defs
+  | bOp == Div = checkExpr expr1 defs ++ checkExpr expr2 defs ++ checkInt expr1 expr2 defs
+  | bOp == Mod = checkExpr expr1 defs ++ checkExpr expr2 defs ++ checkInt expr1 expr2 defs
+
+
+checkBool :: Expr -> Expr -> Defs -> [Error]
+checkBool expr1 expr2 defs 
+  | (tipoExpr expr1 defs == TyBool) && (tipoExpr expr2 defs == TyBool) = []
+  | (tipoExpr expr1 defs == TyInt) && (tipoExpr expr2 defs == TyBool) = [Expected TyBool TyInt]
+  | (tipoExpr expr1 defs == TyBool) && (tipoExpr expr2 defs == TyInt) = [Expected TyBool TyInt]
+  | (tipoExpr expr1 defs == TyInt) && (tipoExpr expr2 defs == TyInt) = [Expected TyBool TyInt] ++ [Expected TyBool TyInt]
+
+
+checkInt :: Expr -> Expr -> Defs -> [Error]
+checkInt expr1 expr2 defs 
+  | (tipoExpr expr1 defs == TyInt) && (tipoExpr expr2 defs == TyInt) = []
+  | (tipoExpr expr1 defs == TyBool) && (tipoExpr expr2 defs == TyInt) = [Expected TyInt TyBool]
+  | (tipoExpr expr1 defs == TyInt) && (tipoExpr expr2 defs == TyBool) = [Expected TyInt TyBool]
+  | (tipoExpr expr1 defs == TyBool) && (tipoExpr expr2 defs == TyBool) = [Expected TyInt TyBool] ++ [Expected TyInt TyBool]
+
+
+--nombresDeclarados []  []
+--nombresDeclarados (x:xs)  (getDefName x) ++ nombresDeclarados xs
+
+tipoVariable :: Name -> Defs -> Type
+--tipoVariable name []  Null
+tipoVariable name (x:xs)
+  | name == getDefNameSolo x = getDefType x 
+  | otherwise = tipoVariable name xs
+
+
+getDefNameSolo :: VarDef -> Name
+getDefNameSolo (VarDef name _) = name
+
+getDefType :: VarDef -> Type
+getDefType (VarDef _ ty) = ty
+
+
