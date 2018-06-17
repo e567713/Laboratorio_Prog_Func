@@ -3,14 +3,41 @@
   <component name="ChangeListManager">
     <list default="true" id="dc4520af-bce2-479d-abd7-582924c17d31" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Generator.hi" afterPath="$PROJECT_DIR$/Generator.hi" />
+      <change beforePath="$PROJECT_DIR$/Generator.o" afterPath="$PROJECT_DIR$/Generator.o" />
+      <change beforePath="$PROJECT_DIR$/Interpreter.hi" afterPath="$PROJECT_DIR$/Interpreter.hi" />
+      <change beforePath="$PROJECT_DIR$/Interpreter.o" afterPath="$PROJECT_DIR$/Interpreter.o" />
+      <change beforePath="$PROJECT_DIR$/MachineLang.hi" afterPath="$PROJECT_DIR$/MachineLang.hi" />
+      <change beforePath="$PROJECT_DIR$/MachineLang.o" afterPath="$PROJECT_DIR$/MachineLang.o" />
       <change beforePath="$PROJECT_DIR$/MicroPascal.hi" afterPath="$PROJECT_DIR$/MicroPascal.hi" />
       <change beforePath="$PROJECT_DIR$/MicroPascal.o" afterPath="$PROJECT_DIR$/MicroPascal.o" />
       <change beforePath="$PROJECT_DIR$/Optimizer.hi" afterPath="$PROJECT_DIR$/Optimizer.hi" />
       <change beforePath="$PROJECT_DIR$/Optimizer.hs" afterPath="$PROJECT_DIR$/Optimizer.hs" />
       <change beforePath="$PROJECT_DIR$/Optimizer.o" afterPath="$PROJECT_DIR$/Optimizer.o" />
+      <change beforePath="$PROJECT_DIR$/Syntax.hi" afterPath="$PROJECT_DIR$/Syntax.hi" />
+      <change beforePath="$PROJECT_DIR$/Syntax.o" afterPath="$PROJECT_DIR$/Syntax.o" />
       <change beforePath="$PROJECT_DIR$/TypeChecker.hi" afterPath="$PROJECT_DIR$/TypeChecker.hi" />
       <change beforePath="$PROJECT_DIR$/TypeChecker.o" afterPath="$PROJECT_DIR$/TypeChecker.o" />
-      <change beforePath="$PROJECT_DIR$/ejemplo7.opt" afterPath="$PROJECT_DIR$/ejemplo7.opt" />
+      <change beforePath="$PROJECT_DIR$/ejemplo1.mp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo1.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo2.mp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo2.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo3.mp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo3.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo4.mp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo4.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo5.err" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo5.mp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo5.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo6.err" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo6.mp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo6.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo7.err" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo7.mp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo7.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo8.mp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo8.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ejemplo8opt.mp" afterPath="" />
       <change beforePath="$PROJECT_DIR$/microPascal.exe" afterPath="$PROJECT_DIR$/microPascal.exe" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,8 +72,8 @@
       <file leaf-file-name="Optimizer.hs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Optimizer.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="58" column="41" lean-forward="false" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+            <state relative-caret-position="309">
+              <caret line="122" column="71" lean-forward="false" selection-start-line="122" selection-start-column="71" selection-end-line="122" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -55,18 +82,8 @@
       <file leaf-file-name="TypeChecker.hs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TypeChecker.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="176" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Checker.hs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Tarea Fede/Checker.hs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2992">
-              <caret line="176" column="2" lean-forward="false" selection-start-line="176" selection-start-column="2" selection-end-line="176" selection-end-column="2" />
+            <state relative-caret-position="141">
+              <caret line="134" column="9" lean-forward="false" selection-start-line="134" selection-start-column="9" selection-end-line="134" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -75,8 +92,8 @@
       <file leaf-file-name="Syntax.hs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Syntax.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="12" />
+            <state relative-caret-position="136">
+              <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -316,7 +333,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.103011094" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1711569" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13250366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -673,14 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Interpreter.hs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MachineLang.hs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -705,26 +714,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TypeChecker.hs">
+    <entry file="file://$PROJECT_DIR$/Interpreter.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="176" selection-end-column="90" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Syntax.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="12" />
+        <state relative-caret-position="136">
+          <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TypeChecker.hs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="134" column="9" lean-forward="false" selection-start-line="134" selection-start-column="9" selection-end-line="134" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Optimizer.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="58" column="41" lean-forward="false" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+        <state relative-caret-position="309">
+          <caret line="122" column="71" lean-forward="false" selection-start-line="122" selection-start-column="71" selection-end-line="122" selection-end-column="71" />
           <folding />
         </state>
       </provider>

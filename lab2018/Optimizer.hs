@@ -50,55 +50,92 @@ optimizeExpr (Var name) = (Var name)
 optimizeExpr (IntLit int) = (IntLit int)
 optimizeExpr (BoolLit bool) = (BoolLit bool)
 optimizeExpr (Unary uOp expr) 
-  | esValor (optimizeExpr expr) && esBool (optimizeExpr expr) = (BoolLit (not(read (show (optimizeExpr expr))::Bool)))
-  | esValor (optimizeExpr expr) = (IntLit (-(read (show (optimizeExpr expr))::Integer)))
+  | esValor (optimizeExpr expr) && esBool (optimizeExpr expr) = (BoolLit (not(obtainBool (optimizeExpr expr))))
+  | esValor (optimizeExpr expr) = (IntLit (- obtainInt expr))
   | otherwise = (Unary uOp (optimizeExpr expr))
 optimizeExpr (Binary bOp expr1 expr2)
-  | bOp == Plus && esCero expr1 = expr2
-  | bOp == Plus && esCero expr2 = expr1
-  | bOp == Mult && esCero expr1 = (IntLit 0)
-  | bOp == Mult && esCero expr2 = (IntLit 0)
-  | bOp == Minus && esCero expr2 = expr1
-  | bOp == Minus && esCero expr1 = (IntLit (-(read (show (optimizeExpr expr2))::Integer)))
-  | otherwise = expr1
+  | bOp == Plus && (esValor opt1) && (esCero opt1) = opt2
+  | bOp == Plus && (esValor opt2) && (esCero opt2) = opt1
+  | bOp == Plus && (esValor opt1) && (esValor opt2) = (IntLit (num1 + num2))
+  | bOp == Plus && (esValor opt1) && (esValor opt2) = (IntLit (num1 + num2))
+  | bOp == Mult && (esValor opt1) && esCero (opt1) = (IntLit 0)
+  | bOp == Mult && (esValor opt2) && esCero (opt2) = (IntLit 0)
+  | bOp == Mult && (esValor opt1) && esUno (opt1) = opt2
+  | bOp == Mult && (esValor opt2) && esUno (opt2) = opt1
+  | bOp == Mult && (esValor opt1) && (esValor (opt2)) = (IntLit (num1 * num2))
+  | bOp == Minus && (esValor opt2) && esCero (opt2) = opt1
+  | bOp == Minus && (esValor opt1) && esCero opt1 = (IntLit (-obtainInt opt1))
+  | bOp == And && (esValor opt1) && (esValor (opt2)) = (BoolLit (bool1 && bool2))
+  | bOp == Less && (esValor opt1) && (esValor (opt2)) = (BoolLit (False))
+  | otherwise = (Binary bOp opt1 opt2)
+  where
+    num1 = obtainInt (optimizeExpr expr1)
+    num2 = obtainInt (optimizeExpr expr2)
+    bool1 = obtainBool (optimizeExpr expr1)
+    bool2 = obtainBool (optimizeExpr expr2)
+    opt1 = optimizeExpr expr1
+    opt2 = optimizeExpr expr2
+
+esValor :: Expr -> Bool
+esValor (Var name) = False
+esValor (IntLit int) = True
+esValor (BoolLit bool) = True
+esValor (Unary uOp expr) = False
+esValor (Binary bOp expr1 expr2) = False
+
+obtainInt :: Expr -> Integer
+obtainInt (IntLit int) = int
+obtainInt expr = -10
+
+obtainBool :: Expr -> Bool
+obtainBool (BoolLit bool) = bool
+obtainBool expr = False
 
 
+-- igualdad y menor solo se aplica a enteros
 esBool :: Expr -> Bool
-esBool expr = True
+esBool (BoolLit bool) = True
 
 
 esCero :: Expr -> Bool
-esCero expr = True
+esCero (IntLit int) = (int == 0)
+esCero expr = False
+--  | esValor (optimizeExpr expr) = (show (expr) == "0")
+--  | otherwise = False
+
+esUno :: Expr -> Bool
+esUno (IntLit int) = (int == 1)
+esUno expr = False
+--  | esValor (optimizeExpr expr) = (show (expr) == "1")
+--  | otherwise = False
+
 
 alwaysTrue :: Expr -> Bool
+-- alwaysTrue expr = False
 alwaysTrue (BoolLit bool) = bool
 alwaysTrue (Unary uOp expr)
   | uOp == Not = alwaysFalse expr
 alwaysTrue (Binary bOp expr1 expr2)
   | bOp == Or = (alwaysTrue expr1) || (alwaysTrue expr2)
   | bOp == And = (alwaysTrue expr1) && (alwaysTrue expr2)
-  | bOp == Equ = (optimizeExpr expr1) == (optimizeExpr expr2)
-  | bOp == Less && (esValor (optimizeExpr expr1)) && (esValor (optimizeExpr expr2)) = 
-    (read (show (optimizeExpr expr1))::Int) < (read (show (optimizeExpr expr2))::Int)
-  | otherwise = False 
+  | bOp == Equ = False
+  | bOp == Less && (esValor (optimizeExpr expr1)) && (esValor (optimizeExpr expr2)) =
+    (obtainInt (optimizeExpr expr1)) < (obtainInt (optimizeExpr expr2))
+  | otherwise = False
 
 
 alwaysFalse :: Expr -> Bool
+-- alwaysFalse expr = False
 alwaysFalse (BoolLit bool) = not bool
 alwaysFalse (Unary uOp expr)
   | uOp == Not = alwaysTrue expr
 alwaysFalse (Binary bOp expr1 expr2)
   | bOp == Or = (alwaysFalse expr1) && (alwaysFalse expr2)
   | bOp == And = (alwaysFalse expr1) || (alwaysFalse expr2)
-  | bOp == Equ = (optimizeExpr expr1) /= (optimizeExpr expr2)
-  | bOp == Less && (esValor (optimizeExpr expr1)) && (esValor (optimizeExpr expr2)) = 
-    (read (show (optimizeExpr expr1))::Int) >= (read (show (optimizeExpr expr2))::Int)
-  | otherwise = False 
+  | bOp == Equ && esValor(optimizeExpr expr1) && esValor(optimizeExpr expr2)= (optimizeExpr expr1) /= (optimizeExpr expr2)
+  | bOp == Less && (esValor (optimizeExpr expr1)) && (esValor (optimizeExpr expr2)) =
+    obtainInt (optimizeExpr expr1) >= obtainInt (optimizeExpr expr2)
+  | otherwise = False
 
 
-esValor :: Expr -> Bool 
-esValor (Var name) = False
-esValor (IntLit int) = True 
-esValor (BoolLit bool) = True
-esValor (Unary uOp expr) = False 
-esValor (Binary bOp expr1 expr2) = False 
+
