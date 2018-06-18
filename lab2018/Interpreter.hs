@@ -29,20 +29,33 @@ type Stack = [Integer]
 interp :: Code -> Code -> Conf -> IO Conf
 interp ant ((READ):xs) (stack, env) = do
                         x <- getLine
+                        putStrLn ("read11111")
+                        let env = storeFunction env "xcx" 5
+                        putStrLn ("read2222")
+                        let y = (idemVar (obpriName(env)) (obpriName(env)))
+                        putStrLn (show(y))
+                        putStrLn (show("dsfds"))
+                        if y then putStrLn ("T") else putStrLn ("F")
+                        putStrLn ("read")
                         interp ((READ):ant) xs ((pushStack stack (read x) ),env)
 interp ant ((STORE name):xs) (stack, env) = do
                         let x = obtainTope stack
+                        putStrLn ("store")
                         interp ((STORE name):ant) xs (popStack stack ,storeFunction env name x )
 interp ant ((WRITE):xs) (stack, env) = do
                         putStrLn (show(obtainTope stack))
+                        putStrLn ("write")
                         interp ((WRITE):ant) xs (popStack stack ,env)
 interp ant ((PUSH value):xs) (stack, env) = do
+                        putStrLn ("push")
                         interp ((PUSH value):ant) xs (pushStack stack value,env)
 interp ant ((LOAD name):xs) (stack, env) = do
+                        putStrLn ("load")
                         interp ((LOAD name):ant) xs (pushStack stack (searchFunction env name),env)
                         --(pushStack stack (searchFunction env name),env)
                         --(pushStack stack (getInt env),env) ---probar si el env es vacio
 interp ant ((ADD):xs) (stack, env) = do
+                        putStrLn ("add")
                         let x = obtainTope stack
                         let stack = popStack stack
                         let y = obtainTope stack
@@ -50,6 +63,7 @@ interp ant ((ADD):xs) (stack, env) = do
                         let stack = pushStack stack (x+y)
                         interp ((ADD):ant) xs (stack ,env)
 interp ant ((SUB):xs) (stack, env) = do
+                        putStrLn ("sub")
                         let x = obtainTope stack
                         let stack = popStack stack
                         let y = obtainTope stack
@@ -57,6 +71,7 @@ interp ant ((SUB):xs) (stack, env) = do
                         let stack = pushStack stack (x-y)
                         interp ((SUB):ant) xs (stack ,env)
 interp ant ((MUL):xs) (stack, env) = do
+                        putStrLn ("mul")
                         let x = obtainTope stack
                         let stack = popStack stack
                         let y = obtainTope stack
@@ -76,7 +91,7 @@ getIntAux (var, int) = int
 
 
 storeFunction :: Env -> Var -> Integer -> Env
-storeFunction [] varObj value = []
+storeFunction [] varObj value = [(varObj,value)]
 storeFunction ((var,int):xs) varObj value
     | idemVar var varObj = (var,value):xs
     | otherwise = [(var,int)] ++ (storeFunction xs varObj value)
@@ -104,6 +119,12 @@ popStack (x:xs) = xs
 
 pushStack :: Stack -> Integer -> Stack
 pushStack xs val = val:xs
+
+
+obpriName :: Env -> Var
+obpriName [] = "lpm"
+obpriName ((name,int):xs) = name
+
 
 -- interp code1 code2 conf = do x <- getLine
 --                                interp((READ):prev) xs (push (read x) s, e)

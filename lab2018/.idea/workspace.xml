@@ -3,15 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="dc4520af-bce2-479d-abd7-582924c17d31" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Generator.hi" afterPath="$PROJECT_DIR$/Generator.hi" />
       <change beforePath="$PROJECT_DIR$/Generator.o" afterPath="$PROJECT_DIR$/Generator.o" />
       <change beforePath="$PROJECT_DIR$/Interpreter.hi" afterPath="$PROJECT_DIR$/Interpreter.hi" />
       <change beforePath="$PROJECT_DIR$/Interpreter.hs" afterPath="$PROJECT_DIR$/Interpreter.hs" />
       <change beforePath="$PROJECT_DIR$/Interpreter.o" afterPath="$PROJECT_DIR$/Interpreter.o" />
+      <change beforePath="$PROJECT_DIR$/MachineLang.hi" afterPath="$PROJECT_DIR$/MachineLang.hi" />
+      <change beforePath="$PROJECT_DIR$/MachineLang.o" afterPath="$PROJECT_DIR$/MachineLang.o" />
       <change beforePath="$PROJECT_DIR$/MicroPascal.hi" afterPath="$PROJECT_DIR$/MicroPascal.hi" />
       <change beforePath="$PROJECT_DIR$/MicroPascal.o" afterPath="$PROJECT_DIR$/MicroPascal.o" />
+      <change beforePath="$PROJECT_DIR$/Optimizer.hi" afterPath="$PROJECT_DIR$/Optimizer.hi" />
       <change beforePath="$PROJECT_DIR$/Optimizer.o" afterPath="$PROJECT_DIR$/Optimizer.o" />
+      <change beforePath="$PROJECT_DIR$/Syntax.hi" afterPath="$PROJECT_DIR$/Syntax.hi" />
+      <change beforePath="$PROJECT_DIR$/Syntax.o" afterPath="$PROJECT_DIR$/Syntax.o" />
+      <change beforePath="$PROJECT_DIR$/TypeChecker.hi" afterPath="$PROJECT_DIR$/TypeChecker.hi" />
+      <change beforePath="$PROJECT_DIR$/TypeChecker.o" afterPath="$PROJECT_DIR$/TypeChecker.o" />
       <change beforePath="$PROJECT_DIR$/microPascal.exe" afterPath="$PROJECT_DIR$/microPascal.exe" />
-      <change beforePath="$PROJECT_DIR$/test02.opt" afterPath="$PROJECT_DIR$/test02.opt" />
       <change beforePath="$PROJECT_DIR$/test02p.cod" afterPath="$PROJECT_DIR$/test02p.cod" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +33,8 @@
       <file leaf-file-name="Interpreter.hs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Interpreter.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-211">
-              <caret line="39" column="54" lean-forward="false" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+            <state relative-caret-position="187">
+              <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -36,7 +43,7 @@
       <file leaf-file-name="Generator.hs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Generator.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
+            <state relative-caret-position="459">
               <caret line="27" column="56" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="56" />
               <folding />
             </state>
@@ -46,7 +53,7 @@
       <file leaf-file-name="Optimizer.hs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Optimizer.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
+            <state relative-caret-position="1190">
               <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
               <folding />
             </state>
@@ -66,7 +73,7 @@
       <file leaf-file-name="Syntax.hs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Syntax.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
+            <state relative-caret-position="901">
               <caret line="53" column="24" lean-forward="false" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
               <folding />
             </state>
@@ -86,7 +93,7 @@
       <file leaf-file-name="MicroPascal.hs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MicroPascal.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
+            <state relative-caret-position="663">
               <caret line="39" column="7" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="7" />
               <folding />
             </state>
@@ -164,8 +171,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,8 +182,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -311,9 +318,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.082408875" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.090332806" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13250366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -321,8 +328,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -696,7 +703,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MicroPascal.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
+        <state relative-caret-position="663">
           <caret line="39" column="7" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="7" />
           <folding />
         </state>
@@ -712,7 +719,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Optimizer.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
+        <state relative-caret-position="1190">
           <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
           <folding />
         </state>
@@ -720,7 +727,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Syntax.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="901">
           <caret line="53" column="24" lean-forward="false" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
           <folding />
         </state>
@@ -728,7 +735,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Generator.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
+        <state relative-caret-position="459">
           <caret line="27" column="56" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="56" />
           <folding />
         </state>
@@ -736,8 +743,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Interpreter.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-211">
-          <caret line="39" column="54" lean-forward="false" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+        <state relative-caret-position="187">
+          <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
           <folding />
         </state>
       </provider>
