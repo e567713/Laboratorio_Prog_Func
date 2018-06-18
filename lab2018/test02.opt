@@ -1,2 +1,1 @@
 Program "test02" [VarDef "x" integer] [Read "x",Assig "x" (Binary Plus (Var "x") (IntLit 76)),Write (Var "x")]
-118

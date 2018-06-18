@@ -27,4 +27,78 @@ type Stack = [Integer]
 
 -- interprete
 interp :: Code -> Code -> Conf -> IO Conf
-interp = undefined -- Implementar
+interp ant ((READ):xs) (stack, env) = do
+                        x <- getLine
+                        interp ((READ):ant) xs ((pushStack stack (read x) ),env)
+interp ant ((STORE name):xs) (stack, env) = do
+                        let x = obtainTope stack
+                        interp ((STORE name):ant) xs (popStack stack ,storeFunction env name x )
+interp ant ((WRITE):xs) (stack, env) = do
+                        putStrLn (show(obtainTope stack))
+                        interp ((WRITE):ant) xs (popStack stack ,env)
+interp ant ((PUSH value):xs) (stack, env) = do
+                        interp ((PUSH value):ant) xs (pushStack stack value,env)
+interp ant ((LOAD name):xs) (stack, env) = do
+                        interp ((LOAD name):ant) xs (pushStack stack (searchFunction env name),env)
+interp ant ((ADD):xs) (stack, env) = do
+                        let x = obtainTope stack
+                        let stack = popStack stack
+                        let y = obtainTope stack
+                        let stack = popStack stack
+                        let stack = pushStack stack (x+y)
+                        interp ((ADD):ant) xs (stack ,env)
+
+interp _ [] conf = return conf
+interp _ _ conf = return conf
+
+
+
+
+storeFunction :: Env -> Var -> Integer -> Env
+storeFunction ((var,int):xs) varObj value
+    | idemVar var varObj = (var,value):xs
+    | otherwise = [(var,int)] ++ (storeFunction xs varObj value)
+storeFunction env _ _ = env
+
+searchFunction :: Env -> Var -> Integer
+searchFunction ((var,int):xs) varObj
+    | idemVar var varObj = int
+    | otherwise = searchFunction xs varObj
+searchFunction _ _ = 77777
+
+idemVar :: Var -> Var -> Bool
+idemVar (name1) (name2)
+    | name1 == name2 = True
+    | otherwise = False
+
+obtainTope :: Stack -> Integer
+obtainTope [] = 333333
+obtainTope (x:xs) = x
+
+popStack :: Stack -> Stack
+popStack [] =[]
+popStack (x:xs) = xs
+
+pushStack :: Stack -> Integer -> Stack
+pushStack xs val = val:xs
+
+-- interp code1 code2 conf = do x <- getLine
+--                                interp((READ):prev) xs (push (read x) s, e)
+
+
+
+--
+--
+-- do x <- getLine
+--     interp((READ):prev) xs (push (read x) s, e)
+--
+--
+--
+--  putStrLn (show i) -- Donde i es un Integer que sacaste del stack
+--
+--
+
+
+
+
+
