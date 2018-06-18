@@ -1,0 +1,1 @@
+Program "test06" [VarDef "x" integer,VarDef "y" boolean] [Read "x",Assig "x" (Binary Plus (Var "x") (IntLit 76)),Assig "y" (Binary Or (Binary Less (Var "x") (IntLit 289)) (Binary Equ (Var "x") (IntLit 300))),Assig "x" (Binary Plus (Var "x") (IntLit 1)),Write (Var "x")]

@@ -1,1 +1,0 @@
-[READ,STORE "x",PUSH 76,LOAD "x",ADD,STORE "x",LOAD "x",WRITE]

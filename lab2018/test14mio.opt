@@ -1,0 +1,1 @@
+Program "test14" [VarDef "x" integer,VarDef "f" integer] [Read "x",If (Binary Less (Var "x") (IntLit 0)) [Assig "x" (Unary Neg (Var "x"))] [Assig "x" (Var "x")],Assig "f" (IntLit 1),While (Binary Less (IntLit 0) (Var "x")) [Assig "f" (Binary Mult (Var "f") (Var "x")),Assig "x" (Binary Minus (Var "x") (IntLit 1))],Write (Var "f")]

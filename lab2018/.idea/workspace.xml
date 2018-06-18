@@ -3,23 +3,43 @@
   <component name="ChangeListManager">
     <list default="true" id="dc4520af-bce2-479d-abd7-582924c17d31" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Generator.hi" afterPath="$PROJECT_DIR$/Generator.hi" />
-      <change beforePath="$PROJECT_DIR$/Generator.o" afterPath="$PROJECT_DIR$/Generator.o" />
       <change beforePath="$PROJECT_DIR$/Interpreter.hi" afterPath="$PROJECT_DIR$/Interpreter.hi" />
       <change beforePath="$PROJECT_DIR$/Interpreter.hs" afterPath="$PROJECT_DIR$/Interpreter.hs" />
       <change beforePath="$PROJECT_DIR$/Interpreter.o" afterPath="$PROJECT_DIR$/Interpreter.o" />
-      <change beforePath="$PROJECT_DIR$/MachineLang.hi" afterPath="$PROJECT_DIR$/MachineLang.hi" />
-      <change beforePath="$PROJECT_DIR$/MachineLang.o" afterPath="$PROJECT_DIR$/MachineLang.o" />
-      <change beforePath="$PROJECT_DIR$/MicroPascal.hi" afterPath="$PROJECT_DIR$/MicroPascal.hi" />
-      <change beforePath="$PROJECT_DIR$/MicroPascal.o" afterPath="$PROJECT_DIR$/MicroPascal.o" />
-      <change beforePath="$PROJECT_DIR$/Optimizer.hi" afterPath="$PROJECT_DIR$/Optimizer.hi" />
-      <change beforePath="$PROJECT_DIR$/Optimizer.o" afterPath="$PROJECT_DIR$/Optimizer.o" />
-      <change beforePath="$PROJECT_DIR$/Syntax.hi" afterPath="$PROJECT_DIR$/Syntax.hi" />
-      <change beforePath="$PROJECT_DIR$/Syntax.o" afterPath="$PROJECT_DIR$/Syntax.o" />
-      <change beforePath="$PROJECT_DIR$/TypeChecker.hi" afterPath="$PROJECT_DIR$/TypeChecker.hi" />
-      <change beforePath="$PROJECT_DIR$/TypeChecker.o" afterPath="$PROJECT_DIR$/TypeChecker.o" />
       <change beforePath="$PROJECT_DIR$/microPascal.exe" afterPath="$PROJECT_DIR$/microPascal.exe" />
-      <change beforePath="$PROJECT_DIR$/test02p.cod" afterPath="$PROJECT_DIR$/test02p.cod" />
+      <change beforePath="$PROJECT_DIR$/test01p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test01p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test02.cod" afterPath="$PROJECT_DIR$/test02.cod" />
+      <change beforePath="$PROJECT_DIR$/test02.op" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test02.opt" afterPath="$PROJECT_DIR$/test02.opt" />
+      <change beforePath="$PROJECT_DIR$/test02p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test02p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test03p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test03p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test04p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test04p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test05p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test05p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test06p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test06p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test07p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test07p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test08p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test08p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test09p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test09p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test10p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test10p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test11p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test11p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test12p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test12p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test13p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test13p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test14p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test14p.opt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test15p.cod" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/test15p.opt" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,8 +53,8 @@
       <file leaf-file-name="Interpreter.hs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Interpreter.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
+            <state relative-caret-position="432">
+              <caret line="121" column="34" lean-forward="true" selection-start-line="121" selection-start-column="34" selection-end-line="122" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -320,7 +340,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.090332806" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12202853" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13250366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -743,8 +763,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Interpreter.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
+        <state relative-caret-position="432">
+          <caret line="121" column="34" lean-forward="true" selection-start-line="121" selection-start-column="34" selection-end-line="122" selection-end-column="25" />
           <folding />
         </state>
       </provider>
