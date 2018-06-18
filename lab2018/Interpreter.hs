@@ -40,6 +40,8 @@ interp ant ((PUSH value):xs) (stack, env) = do
                         interp ((PUSH value):ant) xs (pushStack stack value,env)
 interp ant ((LOAD name):xs) (stack, env) = do
                         interp ((LOAD name):ant) xs (pushStack stack (searchFunction env name),env)
+                        --(pushStack stack (searchFunction env name),env)
+                        --(pushStack stack (getInt env),env) ---probar si el env es vacio
 interp ant ((ADD):xs) (stack, env) = do
                         let x = obtainTope stack
                         let stack = popStack stack
@@ -47,26 +49,47 @@ interp ant ((ADD):xs) (stack, env) = do
                         let stack = popStack stack
                         let stack = pushStack stack (x+y)
                         interp ((ADD):ant) xs (stack ,env)
-
+interp ant ((SUB):xs) (stack, env) = do
+                        let x = obtainTope stack
+                        let stack = popStack stack
+                        let y = obtainTope stack
+                        let stack = popStack stack
+                        let stack = pushStack stack (x-y)
+                        interp ((SUB):ant) xs (stack ,env)
+interp ant ((MUL):xs) (stack, env) = do
+                        let x = obtainTope stack
+                        let stack = popStack stack
+                        let y = obtainTope stack
+                        let stack = popStack stack
+                        let stack = pushStack stack (x*y)
+                        interp ((MUL):ant) xs (stack ,env)
 interp _ [] conf = return conf
 interp _ _ conf = return conf
 
+--Obtiene en integer de un Env
+getInt :: Env -> Integer
+getInt (x:xs) = getIntAux x
+getInt [] = 11111111111111111111111
 
+getIntAux :: (Var, Integer) -> Integer
+getIntAux (var, int) = int
 
 
 storeFunction :: Env -> Var -> Integer -> Env
+storeFunction [] varObj value = []
 storeFunction ((var,int):xs) varObj value
     | idemVar var varObj = (var,value):xs
     | otherwise = [(var,int)] ++ (storeFunction xs varObj value)
-storeFunction env _ _ = env
 
-searchFunction :: Env -> Var -> Integer
+
+searchFunction :: Env -> String -> Integer
+searchFunction [] varObj = 999999999
 searchFunction ((var,int):xs) varObj
-    | idemVar var varObj = int
+    | True = int
     | otherwise = searchFunction xs varObj
-searchFunction _ _ = 77777
 
-idemVar :: Var -> Var -> Bool
+
+idemVar :: String -> String -> Bool
 idemVar (name1) (name2)
     | name1 == name2 = True
     | otherwise = False
