@@ -1,0 +1,1 @@
+Program "test02" [VarDef "x" integer] [Read "x",Assig "x" (Binary Mod (Var "x") (IntLit 2)),Write (Var "x")]

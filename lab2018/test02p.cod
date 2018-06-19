@@ -1,0 +1,1 @@
+[READ,STORE "x",PUSH 2,LOAD "x",DIV,STORE "x",LOAD "x",WRITE]

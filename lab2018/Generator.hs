@@ -48,7 +48,8 @@ generateExpr (Binary bOp expr1 expr2)
   | bOp == Mult = generateExpr (expr2) ++ generateExpr(expr1) ++ [MUL]
   | bOp == Or = generateExpr (expr2) ++ generateExpr(expr1) ++ [JMPZ 3] ++ [JMPZ 1] ++ [PUSH 1] ++ [SKIP]
   | bOp == And = generateExpr (expr2) ++ generateExpr(expr1) ++ [JMPZ 2] ++ [JUMP 3] ++ [JMPZ 1] ++ [PUSH 0] ++ [SKIP]
-  -- TODO hace mod y div
+  | bOp == Div = generateExpr (expr2) ++ generateExpr(expr1) ++ [DIV]
+  | bOp == Mod = generateExpr (expr2) ++ generateExpr(expr1) ++ [MOD]
 generateExpr _ = []
 
 esValor :: Expr -> Bool
