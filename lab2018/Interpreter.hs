@@ -88,14 +88,14 @@ interp ant ((NEG):xs) (stack, env) = do
                         let stack1 = popStack stack
                         let stack2 = pushStack stack1 (-x)
                         interp ((NEG):ant) xs  (stack2,env)
-interp ant (DIV) (stack, env) = do
+interp ant ((DIV):xs) (stack, env) = do
                         let x = obtainTope stack
                         let stack1 = popStack stack
                         let y = obtainTope stack1
                         let stack2 = popStack stack1
                         let stack3 = pushStack stack2 (div x y)
                         interp ((DIV):ant) xs  (stack3,env)
-interp ant (MOD) (stack, env) = do
+interp ant ((MOD):xs) (stack, env) = do
                         let x = obtainTope stack
                         let stack1 = popStack stack
                         let y = obtainTope stack1

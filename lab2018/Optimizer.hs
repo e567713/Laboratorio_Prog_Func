@@ -67,7 +67,15 @@ optimizeExpr (Binary bOp expr1 expr2)
   | bOp == Minus && (esValor opt1) && esCero opt1 = (IntLit (-obtainInt opt1))
   | bOp == And && (esValor opt1) && (esValor (opt2)) = (BoolLit (bool1 && bool2))
   | bOp == Less && (esValor opt1) && (esValor (opt2)) = (BoolLit (False))
-  -- TODO hacer mod, div, or, equ
+  | bOp == And && (esValor opt1) && (esValor (opt2)) = (BoolLit (bool1 || bool2))
+  | bOp == Equ && (esValor opt1) && (esValor (opt2)) = (BoolLit (bool1 == bool2))
+  | bOp == Div && (esValor opt1) && esCero (opt1) = (IntLit 0)  
+  | bOp == Div && (esValor opt2) && esUno (opt2) = opt1
+  | bOp == Div && (esValor opt1) && (esValor (opt2)) = (IntLit (div num1 num2)) 
+  | bOp == Mod && (esValor opt1) && esCero (opt1) = (IntLit 0)
+  | bOp == Mod && (esValor opt1) && esUno (opt1) = (opt1)
+  | bOp == Mod && (esValor opt2) && esUno (opt2) = (IntLit 0)
+  | bOp == Mod && (esValor opt1) && (esValor (opt2)) = (IntLit (mod num1 num2))
   | otherwise = (Binary bOp opt1 opt2)
   where
     num1 = obtainInt (optimizeExpr expr1)
