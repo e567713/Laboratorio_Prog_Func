@@ -151,13 +151,6 @@ tipoExpr (Binary bOp expr1 expr2) defs
 --el checkStm despues chequea la correctitud de expr
 
 
---data Expr =. Var     Name
---          | IntLit  Integer
---          | BoolLit Bool
---          | Unary   UOp Expr
---          | Binary  BOp Expr Expr
-
-
 checkExpr :: Expr -> Defs -> [Error] --capas que hay que pasarle como parametro defs tambien
 checkExpr (Var name ) defs = []
 checkExpr (IntLit int) defs = []
@@ -192,12 +185,7 @@ checkInt expr1 expr2 defs
   | (tipoExpr expr1 defs == TyInt) && (tipoExpr expr2 defs == TyBool) = [Expected TyInt TyBool]
   | (tipoExpr expr1 defs == TyBool) && (tipoExpr expr2 defs == TyBool) = [Expected TyInt TyBool] ++ [Expected TyInt TyBool]
 
-
---nombresDeclarados []  []
---nombresDeclarados (x:xs)  (getDefName x) ++ nombresDeclarados xs
-
 tipoVariable :: Name -> Defs -> Type
---tipoVariable name []  Null
 tipoVariable name (x:xs)
   | name == getDefNameSolo x = getDefType x 
   | otherwise = tipoVariable name xs

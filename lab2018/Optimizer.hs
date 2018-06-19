@@ -101,8 +101,6 @@ esBool (BoolLit bool) = True
 esCero :: Expr -> Bool
 esCero (IntLit int) = (int == 0)
 esCero expr = False
---  | esValor (optimizeExpr expr) = (show (expr) == "0")
---  | otherwise = False
 
 esUno :: Expr -> Bool
 esUno (IntLit int) = (int == 1)

@@ -51,14 +51,3 @@ generateExpr (Binary bOp expr1 expr2)
   | bOp == Div = generateExpr (expr2) ++ generateExpr(expr1) ++ [DIV]
   | bOp == Mod = generateExpr (expr2) ++ generateExpr(expr1) ++ [MOD]
 generateExpr _ = []
-
-esValor :: Expr -> Bool
-esValor (Var name) = False
-esValor (IntLit int) = True
-esValor (BoolLit bool) = True
-esValor (Unary uOp expr) = False
-esValor (Binary bOp expr1 expr2) = False
-
-obtainBool :: Expr -> Bool
-obtainBool (BoolLit bool) = bool
-obtainBool expr = False

@@ -3,22 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="dc4520af-bce2-479d-abd7-582924c17d31" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Interpreter.hi" afterPath="$PROJECT_DIR$/Interpreter.hi" />
+      <change beforePath="$PROJECT_DIR$/Generator.hs" afterPath="$PROJECT_DIR$/Generator.hs" />
       <change beforePath="$PROJECT_DIR$/Interpreter.hs" afterPath="$PROJECT_DIR$/Interpreter.hs" />
-      <change beforePath="$PROJECT_DIR$/Interpreter.o" afterPath="$PROJECT_DIR$/Interpreter.o" />
-      <change beforePath="$PROJECT_DIR$/MicroPascal.hi" afterPath="$PROJECT_DIR$/MicroPascal.hi" />
-      <change beforePath="$PROJECT_DIR$/MicroPascal.o" afterPath="$PROJECT_DIR$/MicroPascal.o" />
-      <change beforePath="$PROJECT_DIR$/microPascal.exe" afterPath="$PROJECT_DIR$/microPascal.exe" />
-      <change beforePath="$PROJECT_DIR$/test05mio.cod" afterPath="$PROJECT_DIR$/test05mio.cod" />
-      <change beforePath="$PROJECT_DIR$/test05mio.opt" afterPath="$PROJECT_DIR$/test05mio.opt" />
-      <change beforePath="$PROJECT_DIR$/test06mio.cod" afterPath="$PROJECT_DIR$/test06mio.cod" />
-      <change beforePath="$PROJECT_DIR$/test06mio.opt" afterPath="$PROJECT_DIR$/test06mio.opt" />
-      <change beforePath="$PROJECT_DIR$/test09mio.cod" afterPath="$PROJECT_DIR$/test09mio.cod" />
-      <change beforePath="$PROJECT_DIR$/test09mio.opt" afterPath="$PROJECT_DIR$/test09mio.opt" />
-      <change beforePath="$PROJECT_DIR$/test14mio.cod" afterPath="$PROJECT_DIR$/test14mio.cod" />
-      <change beforePath="$PROJECT_DIR$/test14mio.opt" afterPath="$PROJECT_DIR$/test14mio.opt" />
-      <change beforePath="$PROJECT_DIR$/test15mio.cod" afterPath="$PROJECT_DIR$/test15mio.cod" />
-      <change beforePath="$PROJECT_DIR$/test15mio.opt" afterPath="$PROJECT_DIR$/test15mio.opt" />
+      <change beforePath="$PROJECT_DIR$/Optimizer.hs" afterPath="$PROJECT_DIR$/Optimizer.hs" />
+      <change beforePath="$PROJECT_DIR$/TypeChecker.hs" afterPath="$PROJECT_DIR$/TypeChecker.hs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Interpreter.hs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Interpreter.hs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Interpreter.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+            <state relative-caret-position="368">
+              <caret line="103" column="36" lean-forward="false" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -42,18 +30,18 @@
       <file leaf-file-name="Generator.hs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Generator.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="56" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="56" />
+            <state relative-caret-position="385">
+              <caret line="52" column="19" lean-forward="false" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Optimizer.hs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Optimizer.hs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Optimizer.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+            <state relative-caret-position="368">
+              <caret line="70" column="37" lean-forward="false" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -62,8 +50,8 @@
       <file leaf-file-name="TypeChecker.hs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TypeChecker.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2091">
-              <caret line="123" column="15" lean-forward="false" selection-start-line="123" selection-start-column="11" selection-end-line="123" selection-end-column="15" />
+            <state relative-caret-position="759">
+              <caret line="189" column="41" lean-forward="false" selection-start-line="189" selection-start-column="31" selection-end-line="189" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -103,15 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>checkRepetidos</find>
-      <find>TypeChecker</find>
-      <find>getFunctionName</find>
-      <find>ast</find>
-      <find>many</find>
-      <find>defsparser</find>
-      <find>defs</find>
-      <find>nombresDeclarados</find>
-      <find>getDefName</find>
       <find>VarDef</find>
       <find>notElem</find>
       <find>getExprName</find>
@@ -133,6 +112,15 @@
       <find>obpriName</find>
       <find>compareInt</find>
       <find>movCode</find>
+      <find>esValor</find>
+      <find>obtainBool</find>
+      <find>esCero</find>
+      <find>checkExpr</find>
+      <find>checkInt</find>
+      <find>checkBool</find>
+      <find>tipoVariable</find>
+      <find>getDefNameSolo</find>
+      <find>getDefType</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,10 +137,10 @@
         <option value="$PROJECT_DIR$/../Tarea Fede/Checker.hs" />
         <option value="$PROJECT_DIR$/Syntax.hs" />
         <option value="$PROJECT_DIR$/MicroPascal.hs" />
-        <option value="$PROJECT_DIR$/TypeChecker.hs" />
+        <option value="$PROJECT_DIR$/Interpreter.hs" />
         <option value="$PROJECT_DIR$/Generator.hs" />
         <option value="$PROJECT_DIR$/Optimizer.hs" />
-        <option value="$PROJECT_DIR$/Interpreter.hs" />
+        <option value="$PROJECT_DIR$/TypeChecker.hs" />
       </list>
     </option>
   </component>
@@ -201,7 +189,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
-    <property name="SearchEverywhereHistoryKey" value="ter&#9;ACTION&#9;ActivateTerminalToolWindow&#10;plug&#9;ACTION&#9;WelcomeScreen.Plugins&#10;plu&#9;ACTION&#9;WelcomeScreen.Plugins&#10;t&#9;ACTION&#9;ActivateTerminalToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="term&#9;ACTION&#9;ActivateTerminalToolWindow&#10;ter&#9;ACTION&#9;ActivateTerminalToolWindow&#10;plug&#9;ACTION&#9;WelcomeScreen.Plugins&#10;plu&#9;ACTION&#9;WelcomeScreen.Plugins&#10;t&#9;ACTION&#9;ActivateTerminalToolWindow" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -323,11 +311,11 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27892235" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27892235" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12361331" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14263074" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13250366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -700,34 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TypeChecker.hs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2091">
-          <caret line="123" column="15" lean-forward="false" selection-start-line="123" selection-start-column="11" selection-end-line="123" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MicroPascal.hs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="39" column="7" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Optimizer.hs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Generator.hs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="56" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -750,8 +714,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Interpreter.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+        <state relative-caret-position="368">
+          <caret line="103" column="36" lean-forward="false" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Generator.hs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="52" column="19" lean-forward="false" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TypeChecker.hs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="189" column="41" lean-forward="false" selection-start-line="189" selection-start-column="31" selection-end-line="189" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Optimizer.hs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="70" column="37" lean-forward="false" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="37" />
           <folding />
         </state>
       </provider>
