@@ -1,1 +1,2 @@
 Program "test15" [VarDef "x" integer,VarDef "f" integer] [Assig "f" (IntLit 0),Read "x",While (Unary Not (Binary Equ (Var "x") (IntLit 0))) [Assig "f" (Binary Plus (Var "f") (Var "x")),Read "x"],Write (Var "f")]
+42

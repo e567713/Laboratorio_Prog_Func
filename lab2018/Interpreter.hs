@@ -46,11 +46,22 @@ interp ant ((CMP):xs) (stack, env) = do
                         let stack1 = popStack stack
                         let y = obtainTope stack1
                         let stack2 = popStack stack1
-                        if (x > y) then (let j = 1) else (if (x == y) then (let j = 0) else (let j = -1))
-
---                         if (x > y) then (let j = 1) else (if (x == y) then (let j = 0) else (let j = -1))
-                        let stack3 = pushStack stack2 (j)
+                        let stack3 = pushStack stack2 (compareInt x y)
                         interp ((CMP):ant) xs (stack3,env)
+interp ant ((JMPZ val):xs) (stack, env) = do
+                        let x = obtainTope stack
+                        let stack1 = popStack stack
+                        let codes = movCode ant ((JMPZ val):xs) (val)
+                        let ant1 = fst(codes)
+                        let act1 = snd(codes)
+                        if (x==0) then interp ant1 act1 (stack1,env) else interp ((JMPZ val):ant) xs (stack1,env)
+interp ant ((JUMP val):xs) (stack, env) = do
+                        let codes = movCode ant ((JUMP val):xs) val
+                        let ant1 = fst(codes)
+                        let act1 = snd(codes)
+                        interp ant1 act1 (stack,env)
+interp ant ((SKIP):xs) (stack, env) = do
+                        interp ((SKIP):ant) xs (stack,env)
 interp ant ((ADD):xs) (stack, env) = do
                         let x = obtainTope stack
                         let stack1 = popStack stack
@@ -72,17 +83,13 @@ interp ant ((MUL):xs) (stack, env) = do
                         let stack3 = popStack stack2
                         let stack4 = pushStack stack3 (x*y)
                         interp ((MUL):ant) xs (stack4 ,env)
+interp ant ((NEG):xs) (stack, env) = do
+                        let x = obtainTope stack
+                        let stack1 = popStack stack
+                        let stack2 = pushStack stack1 (-x)
+                        interp ((NEG):ant) xs  (stack2,env)
 interp _ [] conf = return conf
 interp _ _ conf = return conf
-
---Obtiene en integer de un Env
-getInt :: Env -> Integer
-getInt (x:xs) = getIntAux x
-getInt [] = 11111111111111111111111
-
-getIntAux :: (Var, Integer) -> Integer
-getIntAux (var, int) = int
-
 
 storeFunction :: Env -> Var -> Integer -> Env
 storeFunction [] varObj value = [(varObj,value)]
@@ -114,34 +121,24 @@ popStack (x:xs) = xs
 pushStack :: Stack -> Integer -> Stack
 pushStack xs val = val:xs
 
+compareInt :: Integer -> Integer -> Integer
+compareInt value1 value2
+    | value1 > value2 = 1
+    | value1 == value2 = 0
+    | value1 < value2 = -1
 
-obpriName :: Env -> Var
-obpriName [] = "VACIO"
-obpriName ((name,int):xs) = name
-
--- compareInt :: Integer -> Integer -> Integer
--- compareInt value value
-
-
-
-
--- interp code1 code2 conf = do x <- getLine
---                                interp((READ):prev) xs (push (read x) s, e)
-
-
-
---
---
--- do x <- getLine
---     interp((READ):prev) xs (push (read x) s, e)
---
---
---
---  putStrLn (show i) -- Donde i es un Integer que sacaste del stack
---
---
-
-
+movCode :: Code -> Code -> Int -> (Code,Code)
+movCode  [] [] _ = ([],[])
+movCode  code1 code2 0 = (code1, code2)
+movCode  (x:xs1) [] val
+    | (val > 0) = ((x:xs1),[])
+    | (val < 0) = movCode xs1 [x] (val+1)
+movCode  [] (x:xs2) val
+    | (val > 0) = movCode [x] xs2 (val-1)
+    | (val < 0) = ([],(x:xs2))
+movCode  (x:xs1) (y:xs2) val
+    | (val > 0) = movCode (y:(x:xs1)) xs2 (val-1)
+    | (val < 0) = movCode (xs1) (x:(y:xs2)) (val+1)
 
 
 
