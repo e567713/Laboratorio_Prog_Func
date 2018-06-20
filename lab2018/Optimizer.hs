@@ -129,6 +129,7 @@ alwaysTrue (Binary bOp expr1 expr2)
   | bOp == Less && (esValor (optimizeExpr expr1)) && (esValor (optimizeExpr expr2)) =
     (obtainInt (optimizeExpr expr1)) < (obtainInt (optimizeExpr expr2))
   | otherwise = False
+alwaysTrue expr = False
 
 
 alwaysFalse :: Expr -> Bool
@@ -143,6 +144,7 @@ alwaysFalse (Binary bOp expr1 expr2)
   | bOp == Less && (esValor (optimizeExpr expr1)) && (esValor (optimizeExpr expr2)) =
     obtainInt (optimizeExpr expr1) >= obtainInt (optimizeExpr expr2)
   | otherwise = False
+alwaysFalse expr = False
 
 
 
